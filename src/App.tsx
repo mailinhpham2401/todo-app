@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { TodoList } from "./interfaces/todo";
+import InputForm from "./components/InputForm";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [todoList, setTodoList] = useState<TodoList>([]);
+
+	return (
+		<div className="App">
+			<InputForm setTodoList={setTodoList} todoList={todoList} />
+			{todoList.map((todoItem, idx) => {
+				return (
+					<div key={idx}
+						style={{
+							margin: "10px",
+							backgroundColor: "red"
+						}}>
+						<p>{todoItem.task}</p>
+						<p>{todoItem.done ? "done" : "not done"}</p>
+						<button>delete</button>
+					</div>
+				);
+			})}
+		</div>
+	);
 }
 
 export default App;
