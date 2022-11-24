@@ -7,7 +7,7 @@ interface Props {
 
 const TodoTask = ({ todoTask }: Props) => {
     return (
-        <div className="content" key={todoTask.id}>
+        <div className="content">
             <span className='taskName'>{todoTask.task}</span>
             <span className='done'>{todoTask.done ? "v" : "x"}</span>
         </div>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { TodoList } from '../interfaces/todo'
 import TodoTask from './TodoTask';
 
@@ -7,13 +7,11 @@ interface Props {
 };
 
 const TodoTasks = ({ todoList }: Props) => {
-  const [todoTask, setTodoTask] = useState<TodoList>([]);
-
   return (
     <div className="task">
-      {todoList.map((todoTask) => {
+      {todoList.map((todoTask, idx) => {
         return (
-          <TodoTask todoTask={todoTask} />
+          <TodoTask todoTask={todoTask} key={idx} />
         );
       })};
     </div>
