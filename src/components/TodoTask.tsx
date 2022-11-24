@@ -1,23 +1,18 @@
 import React from 'react'
-import { TodoList } from '../interfaces/todo'
+import { TodoItem } from '../interfaces/todo'
 
 interface Props {
-  todoList: TodoList;
-}
+    todoTask: TodoItem;
+};
 
-const TodoTask = ({ todoList }: Props) => {
-  return (
-    <div className="task">
-      {todoList.map((todoItem, idx) => {
-        return (
-          <div className="content" key={idx}>
-            <span className='taskName'>{todoItem.task}</span>
-            <span className='done'>{todoItem.done ? "v" : "x"}</span>
-          </div>
-        );
-      })}
-    </div>
-  )
+const TodoTask = ({ todoTask }: Props) => {
+    return (
+        <div className="content" key={todoTask.id}>
+            <span className='taskName'>{todoTask.task}</span>
+            <span className='done'>{todoTask.done ? "v" : "x"}</span>
+        </div>
+    );
 }
 
 export default TodoTask
+

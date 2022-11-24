@@ -34,12 +34,14 @@ body {
   border: 2px solid black;
   border-radius: 8px;
   margin: 2px;
+  cursor: pointer;
 }
 
 .header .submit {
   width: 200px;
   height: 46px;
   background-color: rgb(15, 172, 225);
+  cursor: pointer;
 }
 
 .todoList {

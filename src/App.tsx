@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { TodoList } from "./interfaces/todo";
 import InputForm from "./components/InputForm";
-import TodoTask from "./components/TodoTask";
+import TodoTasks from "./components/TodoTasks";
 
 function App() {
     const [todoList, setTodoList] = useState<TodoList>([]);
@@ -15,10 +15,11 @@ function App() {
                 </div>
             </div>
             <div className="todoList">
-                <TodoTask todoList={todoList} />
+                <TodoTasks todoList={todoList} />
             </div>
         </div>
     );
-}
+};
 
 export default App;
+

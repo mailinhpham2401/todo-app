@@ -41,3 +41,4 @@ export default function InputForm({setTodoList, todoList}: InputFormProps) {
         </div>
     );
 }
+
