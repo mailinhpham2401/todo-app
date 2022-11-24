@@ -34,11 +34,11 @@ export default function InputForm({setTodoList, todoList}: InputFormProps) {
 
     return (
         <div>
-            {inputText}
             <form onSubmit={submitTodo}>
                 <input type="text" name="task" onChange={handleInput}/>
-                <input type="submit" value="Submit"/>
+                <input type="submit" value="Add task" className="submit"/>
             </form>
         </div>
     );
 }
+
