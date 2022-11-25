@@ -1,15 +1,21 @@
 import React from 'react'
-import { TodoItem } from '../interfaces/todo'
+import { TodoItem, ToggleComplete } from '../interfaces/todo'
 
 interface Props {
     todoTask: TodoItem;
+    toggleComplete: ToggleComplete;
+
 };
 
-const TodoTask = ({ todoTask }: Props) => {
+const TodoTask = ({ todoTask, toggleComplete }: Props) => {
     return (
-        <div className="content">
+        <div className={todoTask.done ? " task-row completed" : "task-row"} >
             <span className='taskName'>{todoTask.task}</span>
-            <span className='done'>{todoTask.done ? "v" : "x"}</span>
+            <span className='checkbox'><input
+                type="checkbox"
+                onChange={() => toggleComplete(todoTask)}
+                checked={todoTask.done}
+            /></span>
         </div>
     );
 }
