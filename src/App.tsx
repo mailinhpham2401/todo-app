@@ -13,11 +13,12 @@ function App() {
     
     const toggleComplete: ToggleComplete = (selectedTodo: TodoItem) => {
         const updatedTodos = todoList.map(todoTask => {
-            if (todoTask.id === selectedTodo.id) {
-                return { ...todoTask, done: !todoTask.done };
+            if (todoTask.id === selectedTodo.id) {  
+                return { ...todoTask, done: !todoTask.done }
             }
             return todoTask;
         });
+        
         setTodoList(updatedTodos);
    };
     
@@ -32,8 +33,8 @@ function App() {
                 <TodoTasks todoList={todoList} toggleComplete={toggleComplete} />
             </div>
         </div>
-    );
-};
+    )
+}
 
 export default App;
 

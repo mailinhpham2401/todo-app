@@ -1,12 +1,12 @@
-import React from 'react'
+import React from 'react';
 import { ToggleComplete } from '../App';
-import { TodoList } from '../interfaces/todo'
+import { TodoList } from '../interfaces/todo';
 import TodoTask from './TodoTask';
 
 interface ListProps {
     todoList: TodoList;
     toggleComplete: ToggleComplete;
-};
+}
 
 const TodoTasks = ({ todoList, toggleComplete }: ListProps) => {
     return (
@@ -17,7 +17,8 @@ const TodoTasks = ({ todoList, toggleComplete }: ListProps) => {
                 );
             })};
         </div>
-    );
+    )
 }
 
-export default TodoTasks
+export default TodoTasks;
+

@@ -39,6 +39,6 @@ export default function InputForm({setTodoList, todoList}: InputFormProps) {
                 <input type="submit" value="Add task" className="submit"/>
             </form>
         </div>
-    );
+    )
 }
 

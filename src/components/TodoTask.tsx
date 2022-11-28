@@ -1,12 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { ToggleComplete } from '../App';
 import { TodoItem } from '../interfaces/todo'
 
 interface Props {
     todoTask: TodoItem;
     toggleComplete: ToggleComplete;
-
-};
+}
 
 const TodoTask = ({ todoTask, toggleComplete }: Props) => {
     return (
@@ -18,8 +17,8 @@ const TodoTask = ({ todoTask, toggleComplete }: Props) => {
                 checked={todoTask.done}
             /></span>
         </div>
-    );
+    )
 }
 
-export default TodoTask
+export default TodoTask;
 
