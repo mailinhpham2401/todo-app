@@ -1,29 +1,19 @@
-import React, { useState } from 'react'
-import { TodoItem, TodoList } from '../interfaces/todo'
+import React from 'react'
+import { ToggleComplete } from '../App';
+import { TodoList } from '../interfaces/todo'
 import TodoTask from './TodoTask';
 
-interface Props {
+interface ListProps {
     todoList: TodoList;
+    toggleComplete: ToggleComplete;
 };
 
-const TodoTasks = ({ todoList }: Props) => {
-    const [todos, setTodoList] = useState<TodoList>([]);
-
-    const toggleComplete = (selectedTodo: TodoItem) => {
-        const updatedTodos = todoList.map(todoTask => {
-            if (todoTask === selectedTodo) {
-                return { ...todoTask, done: !todoTask.done };
-            }
-            return console.log(todoTask);
-        });
-/*         setTodoList(updatedTodos);
- */    };
+const TodoTasks = ({ todoList, toggleComplete }: ListProps) => {
     return (
         <div className="task">
             {todoList.map((todoTask, idx) => {
                 return (
-                    <TodoTask todoTask={todoTask} key={idx} toggleComplete={toggleComplete}
-                    />
+                    <TodoTask todoTask={todoTask} toggleComplete={toggleComplete} key={idx} />
                 );
             })};
         </div>

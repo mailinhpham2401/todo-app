@@ -1,5 +1,6 @@
 import React from 'react'
-import { TodoItem, ToggleComplete } from '../interfaces/todo'
+import { ToggleComplete } from '../App';
+import { TodoItem } from '../interfaces/todo'
 
 interface Props {
     todoTask: TodoItem;

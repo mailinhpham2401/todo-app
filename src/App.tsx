@@ -1,12 +1,26 @@
 import React, { useState } from "react";
 import "./App.css";
-import { TodoList } from "./interfaces/todo";
+import { TodoList, TodoItem } from "./interfaces/todo";
 import InputForm from "./components/InputForm";
 import TodoTasks from "./components/TodoTasks";
 
+export interface ToggleComplete {
+    (selectedTodo: TodoItem): void;
+}
+
 function App() {
     const [todoList, setTodoList] = useState<TodoList>([]);
-
+    
+    const toggleComplete: ToggleComplete = (selectedTodo: TodoItem) => {
+        const updatedTodos = todoList.map(todoTask => {
+            if (todoTask.id === selectedTodo.id) {
+                return { ...todoTask, done: !todoTask.done };
+            }
+            return todoTask;
+        });
+        setTodoList(updatedTodos);
+   };
+    
     return (
         <div className="App">
             <div className="header">
@@ -15,7 +29,7 @@ function App() {
                 </div>
             </div>
             <div className="todoList">
-                <TodoTasks todoList={todoList} />
+                <TodoTasks todoList={todoList} toggleComplete={toggleComplete} />
             </div>
         </div>
     );

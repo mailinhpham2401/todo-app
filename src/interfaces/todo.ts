@@ -7,4 +7,3 @@ export interface TodoItem {
 
 export type TodoList = Array<TodoItem>;
 
-export type ToggleComplete = (selectedTodo:TodoItem) => void;
