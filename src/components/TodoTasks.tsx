@@ -1,21 +1,24 @@
-import React from 'react'
-import { TodoList } from '../interfaces/todo'
+import React from 'react';
+import { ToggleComplete } from '../App';
+import { TodoList } from '../interfaces/todo';
 import TodoTask from './TodoTask';
 
-interface Props {
-  todoList: TodoList;
-};
-
-const TodoTasks = ({ todoList }: Props) => {
-  return (
-    <div className="task">
-      {todoList.map((todoTask, idx) => {
-        return (
-          <TodoTask todoTask={todoTask} key={idx} />
-        );
-      })};
-    </div>
-  );
+interface ListProps {
+    todoList: TodoList;
+    toggleComplete: ToggleComplete;
 }
 
-export default TodoTasks
+const TodoTasks = ({ todoList, toggleComplete }: ListProps) => {
+    return (
+        <div className="task">
+            {todoList.map((todoTask, idx) => {
+                return (
+                    <TodoTask todoTask={todoTask} toggleComplete={toggleComplete} key={idx} />
+                );
+            })};
+        </div>
+    )
+}
+
+export default TodoTasks;
+

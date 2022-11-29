@@ -6,3 +6,4 @@ export interface TodoItem {
 }
 
 export type TodoList = Array<TodoItem>;
+
