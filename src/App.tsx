@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import { TodoList, TodoItem } from "./interfaces/todo";
 import InputForm from "./components/InputForm";
-import TodoTasks from "./components/TodoTasks";
+import TodoTasks, { DeleteTask } from "./components/TodoTasks";
 
 export interface ToggleComplete {
     (selectedTodo: TodoItem): void;
@@ -18,9 +18,13 @@ function App() {
             }
             return todoTask;
         });
-        
         setTodoList(updatedTodos);
-   };
+    };
+    
+    const deleteTask: DeleteTask = (selectedTodo: TodoItem) => {
+        const updatedTodos = todoList.filter(todoTask => todoTask.id !== selectedTodo.id);
+        setTodoList(updatedTodos);
+    }
     
     return (
         <div className="App">
@@ -30,7 +34,7 @@ function App() {
                 </div>
             </div>
             <div className="todoList">
-                <TodoTasks todoList={todoList} toggleComplete={toggleComplete} />
+                <TodoTasks todoList={todoList} toggleComplete={toggleComplete} deleteTask={deleteTask} />
             </div>
         </div>
     )
