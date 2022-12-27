@@ -89,13 +89,20 @@ body {
 }
 
 .task-row .checkbox {
+    background-color: rgb(15, 172, 225);
+    border-right: none;
+}
+
+.task-row .delete-btn {
     background-color: red;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
 
+.task-row .delete-icon {
+    border: none;
+}
+
 .completed {
     text-decoration: line-through;
 }
-
-
